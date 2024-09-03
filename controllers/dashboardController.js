@@ -1,9 +1,4 @@
 const axios = require('axios');
-
-
-
-
-
 exports.index = async(req, res) => {
     try{
         const [response,response2] = await Promise.all([
@@ -22,7 +17,7 @@ exports.index = async(req, res) => {
     }
     catch(error){
         console.log(error);
-        res.status(500).send('Internal Server Error');
+        res.render('error');
     }
     
 }
@@ -38,10 +33,10 @@ exports.price = async(req, res) => {
 }
     catch(error){
         console.log(error);
+        res.render('error');
         
     }
 }
-
 exports.exchange = async(req, res) => {
     try{
         const id = req.query.id;
@@ -71,7 +66,7 @@ exports.exchange = async(req, res) => {
     }
     catch(error){
         console.log(error);
-        res.status(500).send('Internal Server Error');
+        res.render('error');
     }
    
 }
